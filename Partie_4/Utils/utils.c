@@ -129,7 +129,7 @@ int interpolate(Mandel_pic mandel, double x, double y) {
         return -1;
     }
 
-    if (x < mandel.X_min || x > mandel.X_max || y > mandel.Y_min || y < mandel.Y_max) {
+    if (x < mandel.X_min || x > mandel.X_max || y < mandel.Y_min || y < mandel.Y_max) {
         return -1;
     }
 
@@ -148,7 +148,7 @@ int interpolate(Mandel_pic mandel, double x, double y) {
     int bottom = mandel.convrg[(j + 1) * mandel.largeur + i];
     int top = mandel.convrg[(j - 1) * mandel.largeur + i];
 
-    if (left == 0 || right == 0 || bottom == 0 || top == 0) {
+    if (!(left == right && right == bottom && bottom == top)) {
         return -1;
     }
     
