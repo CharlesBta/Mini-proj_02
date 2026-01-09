@@ -125,7 +125,7 @@ color palette(int c)
 }
 
 int interpolate(Mandel_pic mandel, double x, double y) {
-    if (rand() % 100 < 1) {
+    if ((rand() % 100) < 1) {
         return -1;
     }
 
@@ -134,19 +134,15 @@ int interpolate(Mandel_pic mandel, double x, double y) {
     }
 
     double fx = (x - mandel.X_min) / mandel.pixwidth;
-    double fy = (y - mandel.Y_min) / mandel.pixwidth;
+    double fy = -(y - mandel.Y_min) / mandel.pixwidth;
 
     int i = (int)round(fx);
     int j = (int)round(fy);
-
-    if (i < 0 || i >= mandel.largeur || j < 0 || j >= mandel.hauteur) {
+    
+    if ((i <= 0) || (i >= LARGEUR - 1) || (j <= 0) || (j >= HAUTEUR - 1)) {
         return -1;
     }
-
-    if (i == 0 || i == mandel.largeur - 1 || j == 0 || j == mandel.hauteur - 1) {
-        return -1;
-    }
-
+    
     int left = mandel.convrg[j * mandel.largeur + i - 1];
     int right = mandel.convrg[j * mandel.largeur + i + 1];   
     int bottom = mandel.convrg[(j + 1) * mandel.largeur + i];
@@ -155,7 +151,7 @@ int interpolate(Mandel_pic mandel, double x, double y) {
     if (left == 0 || right == 0 || bottom == 0 || top == 0) {
         return -1;
     }
-
+    
     return mandel.convrg[j * mandel.largeur + i];
 }
 
