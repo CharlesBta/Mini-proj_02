@@ -5,7 +5,7 @@
 
 
 Mandel_pic generate_mandelbrot(double x, double y, double scale, char* filename, Mandel_pic* previous_mandel) {
-    Mandel_pic mandel = new_mandel(LARGEUR, HAUTEUR, x - (1.5 * scale), y + (1.0 * scale), scale, previous_mandel);
+    Mandel_pic mandel = new_mandel(LARGEUR, HAUTEUR, x - (1.0 * scale), y - (1.0 * scale), scale, previous_mandel);
     save_mandel(filename, mandel);
     return mandel;
 }
