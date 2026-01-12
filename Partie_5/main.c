@@ -13,7 +13,7 @@ Mandel_pic generate_mandelbrot(double x, double y, double scale, char* filename,
 int main(int argc, char *argv[]) {
     double x = -0.743643887037151;
     double y = 0.13182590420533;
-    double scale = 0.01;
+    double scale = 1;
     int nb_files = 100;
     int first_file = 1;
     char filename[256];

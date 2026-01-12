@@ -1,5 +1,5 @@
 #define X_MIN -2.0
-#define Y_MIN 1.0
+#define Y_MIN -1.0
 #define X_MAX 1.0
 #define Y_MAX -1.0
 

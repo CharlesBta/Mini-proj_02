@@ -26,9 +26,11 @@ Mandel_pic new_mandel(int width, int height, double Xmin, double Ymin, double sc
     mandel.X_min = Xmin;
     mandel.Y_min = Ymin;
     mandel.X_max = Xmin + (3.0 * scale);
-    mandel.Y_max = Ymin - (3.0 * scale * height / width);
+    mandel.Y_max = Ymin + (3.0 * scale * height / width);
     mandel.scale = scale;
     mandel.pixwidth = 3.0 * scale / width;
+
+    printf("xmin: %lf, xmax: %lf, ymin: %lf, ymax: %lf\n", mandel.X_min, mandel.X_max, mandel.Y_min, mandel.Y_max);
 
     mandel.convrg = (int*)malloc(width * height * sizeof(int));
     if (mandel.convrg == NULL)

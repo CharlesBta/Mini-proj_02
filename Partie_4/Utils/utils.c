@@ -5,7 +5,7 @@
 #include <string.h>
 #include "utils.h"
 
-#define MAX_ITER 85
+#define MAX_ITER 4096
 
 void pixel_to_coord(int px, int py, double *x, double *y, double X_min, double Y_min, double X_max, double Y_max, int width, int height)
 {
